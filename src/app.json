@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "pages/index/main",
+    "pages/logs/main"  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "哈弗英语",
+    "navigationBarTextStyle": "black"
+  }
+}
