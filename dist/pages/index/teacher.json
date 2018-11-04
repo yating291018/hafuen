@@ -1,0 +1,27 @@
+[
+    {
+        "teacherName": "Daniel",
+        "type": "英语外教",
+        "years": "6年教龄"
+    },
+    {
+        "teacherName": "李亚老师",
+        "type": "少儿英语",
+        "years": "4年教龄"
+    },
+    {
+        "teacherName": "许燕妮",
+        "type": "数学老师",
+        "years": "5年教龄"
+    },
+    {
+        "teacherName": "高冶",
+        "type": "语文课程",
+        "years": "3年教龄"
+    },
+    {
+        "teacherName": "邓芳老师",
+        "type": "少儿数学",
+        "years": "5年教龄"
+    }
+]

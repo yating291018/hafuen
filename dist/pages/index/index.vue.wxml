@@ -1,0 +1,76 @@
+<template name="2fd6f4c8">
+  <view class="_div data-v-44136e62 container">
+    <view class="_div data-v-44136e62 imgContainr">
+      <image mode="scaleToFill" src="../../images/1.jpg" style="width: 100%;opacity: .8;" class="_image data-v-44136e62"></image>
+    </view>
+    <view class="_div data-v-44136e62 mainContainer">
+      <view class="_div data-v-44136e62 main-header">
+        <view class="_div data-v-44136e62 main-log">
+          <image src="{{log}}" alt style="width: 100%; height: 100%;" class="_image data-v-44136e62"></image>
+        </view>
+        <view class="_div data-v-44136e62 content">
+          <view class="_h1 data-v-44136e62">哈弗英语 (塘桥教学点)</view>
+          <view class="_div data-v-44136e62 descContent">
+            {{ getMessage }}
+          </view>
+          <view class="_p data-v-44136e62 showHide" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">{{ showhide ?  '收起' : '查看更多'}}</view>
+        </view>
+      </view>
+      <view class="_div data-v-44136e62 contractstyle">
+        <view class="_div data-v-44136e62 item">
+          <view class="_div data-v-44136e62 left"><label class="_span data-v-44136e62 icon">
+              <view class="_i data-v-44136e62 iconfont icon-dingwei1"></view>
+            </label>
+            <view class="_div data-v-44136e62 item-content" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+              <view class="_p data-v-44136e62 title">茂兴路88号仁恒广场302室</view>
+              <view class="_p data-v-44136e62 subtitle">距地铁4号线塘桥站3号口步行610m</view>
+            </view>
+          </view> <label class="_span data-v-44136e62 iphone" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">
+            <view class="_i data-v-44136e62 iconfont icon-dianhua"></view>
+          </label>
+        </view>
+        <view class="_div data-v-44136e62 item">
+          <view class="_div data-v-44136e62 left"><label class="_span data-v-44136e62 icon">
+              <view class="_i data-v-44136e62 iconfont icon-shizhong"></view>
+            </label>
+            <view class="_div data-v-44136e62 item-content">
+              <view class="_p data-v-44136e62 title line-height">周一至周日 09:00 - 21:00</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-44136e62 jieshouContainer" ref="jieshouContainerRef">
+        <view class="_div data-v-44136e62 tabbar">
+          <view class="_div data-v-44136e62 tabbar-item {{[selectIndex === 0 ? 'unselected' : '']}}" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}"> 门店介绍 <view class="_p data-v-44136e62 border" hidden="{{!(selectIndex === 1)}}"></view>
+          </view>
+          <view class="_div data-v-44136e62 tabbar-item {{[selectIndex === 1 ? 'unselected' : '']}}" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}"> 门店风采 <view class="_p data-v-44136e62 border" hidden="{{!(selectIndex === 0)}}"></view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-44136e62 lilinag" wx:if="{{selectIndex === 1}}">
+        <view class="_div data-v-44136e62 liliang-header">师资力量</view>
+        <scroll-view scroll-x style="height: 160px;overflow:hidden;white-space:nowrap;width: 100%;box-sizing:border-box;padding: 0 5px;" class="_scroll-view data-v-44136e62">
+          <view class="_div data-v-44136e62 itemli" wx:key="index" key="{{index}}" wx:for="{{teachersList}}" wx:for-index="index" wx:for-item="item">
+            <view class="_div data-v-44136e62 img">
+              <image src="/images/log.jpg" alt class="_img data-v-44136e62"></image>
+            </view>
+            <view class="_div data-v-44136e62 bottomContent">
+              <view class="_p data-v-44136e62 first">{{ item.teacherName }}</view>
+              <view class="_p data-v-44136e62">{{ item.type }}</view>
+              <view class="_p data-v-44136e62">{{ item.years }}</view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <view class="_div data-v-44136e62 huanjing" wx:if="{{selectIndex === 0}}">
+        <view class="_div data-v-44136e62 huan-title">环境</view>
+        <view class="_div data-v-44136e62 huanImgContainer">
+          <view class="_div data-v-44136e62 img-item" wx:key="index" key="{{index}}" wx:for="{{huanImages}}" wx:for-index="index" wx:for-item="item">
+            <image src="/images/1.jpg" alt class="_img data-v-44136e62"></image>
+          </view>
+        </view>
+        <view class="_p data-v-44136e62 huan-more" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}">{{ loadMoreTest }}</view>
+      </view>
+    </view> <button class="_button data-v-44136e62 btn" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}">预约试听</button>
+  </view>
+</template>

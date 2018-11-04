@@ -19,13 +19,13 @@
       <div class="contractstyle">
         <div class="item">
           <div class="left">
-            <span class="icon"><i class="iconfont icon-dingwei1"></i></span>
-            <div class="item-content">
+            <span class="icon" ><i class="iconfont icon-dingwei1"></i></span>
+            <div class="item-content" @click="openMap">
               <p class="title">茂兴路88号仁恒广场302室</p>
               <p class="subtitle">距地铁4号线塘桥站3号口步行610m</p>
             </div>
           </div>
-          <span class="iphone"><i class="iconfont icon-dianhua"></i></span>
+          <span class="iphone" @click="callIphone"><i class="iconfont icon-dianhua"></i></span>
         </div>
         <div class="item">
           <div class="left">
@@ -36,34 +36,34 @@
           </div>
         </div>
       </div>
-      <div class="jieshouContainer">
+      <div class="jieshouContainer" ref="jieshouContainerRef">
         <div class="tabbar">
-          <div class="tabbar-item" :class="{unselected: selectIndex === 0}" @click="selectIndex = 1">
+          <div class="tabbar-item" :class="{unselected: selectIndex === 0}" @click="typeChange(1)">
             门店介绍
             <p class="border" v-show="selectIndex === 1"></p>
           </div>
-          <div class="tabbar-item" :class="{unselected: selectIndex === 1}" @click="selectIndex = 0">
+          <div class="tabbar-item" :class="{unselected: selectIndex === 1}" @click="typeChange(0)">
             门店风采
             <p class="border" v-show="selectIndex === 0"></p>
           </div>
         </div>
       </div>
-      <div class="lilinag" v-show="selectIndex === 1">
+      <div class="lilinag" v-if="selectIndex === 1">
         <div class="liliang-header">师资力量</div>
         <scroll-view scroll-x style="height: 160px;overflow:hidden;white-space:nowrap;width: 100%;box-sizing:border-box;padding: 0 5px;">
-          <div class="itemli" v-for="(item, index) in imgList" :key="index">
+          <div class="itemli" v-for="(item, index) in teachersList" :key="index">
             <div class="img">
               <img src="../../images/log.jpg" alt="">
             </div>
             <div class="bottomContent">
-              <p class="first">Daniel</p>
-              <p>英语外教</p>
-              <p>6年任教</p>
+              <p class="first">{{ item.teacherName }}</p>
+              <p>{{ item.type }}</p>
+              <p>{{ item.years }}</p>
             </div>
           </div>
         </scroll-view>
       </div>
-      <div class="huanjing" v-show="selectIndex === 0">
+      <div class="huanjing" v-if="selectIndex === 0">
         <div class="huan-title">环境</div>
         <div class="huanImgContainer">
           <div class="img-item" v-for="(item, index) in huanImages" :key="index">
@@ -73,12 +73,13 @@
         <p class="huan-more" @click="loadmore()">{{ loadMoreTest }}</p>
       </div>
     </div>
-    <button class="btn">预约试听</button>
+    <button class="btn" @click="goTry">预约试听</button>
   </div>
 </template>
 
 <script>
 import log from '../../images/log.jpg'
+import teacherData from './teacher'
 export default {
   data () {
     return {
@@ -91,7 +92,7 @@ export default {
         西象教育成立于2008年，是一家专业从事中小学学习能力辅导与培养的机构
         西象教育成立于2008年，是一家专业从事中小学学习能力辅导与培养的机构`,
       selectIndex: 1,
-      imgList: [1, 2, 3, 4, 5, 6],
+      teachersList: teacherData,
       huanImages: [1, 2, 3, 4],
       loadMoreTest: '加载更多',
       loadmoreIndex: 0
@@ -99,11 +100,9 @@ export default {
   },
   components: {
   },
-  created () {
-  },
   computed: {
     getMessage () {
-      console.log('showhide', this.showhide)
+      // console.log('showhide', this.showhide)
       if (this.showhide) {
         return this.message
       }
@@ -111,8 +110,15 @@ export default {
     }
   },
   methods: {
+    // 类型切换
+    typeChange (selectIndex) {
+      this.selectIndex = selectIndex
+      wx.pageScrollTo({
+        scrollTop: 400,
+        duration: 500
+      })
+    },
     showHideFn (showhide) {
-      console.log('showhide', showhide)
       this.showhide = !showhide
     },
     loadmore () {
@@ -123,9 +129,40 @@ export default {
       } else {
         this.loadMoreTest = '加载更多'
         this.loadmoreIndex = 0
-        this.huanImages.push(5, 6, 7, 8)
+        this.huanImages = this.huanImages.slice(0, 4)
       }
+    },
+    // 打电话
+    callIphone () {
+      wx.makePhoneCall({
+        phoneNumber: '15188276953'
+      })
+    },
+    // 打开地图
+    openMap () {
+      const latitude = 31.20926
+      const longitude = 121.51391
+      wx.openLocation({
+        latitude,
+        longitude,
+        scale: 18,
+        name: '哈弗英语'
+      })
+    },
+    goTry () {
+      wx.navigateTo({
+        url: '/pages/experience/main'
+      })
     }
+  },
+  onShareAppMessage (res) {
+    return {
+      title: '自定义转发标题',
+      path: 'pages/index/main'
+    }
+  },
+  onPageScroll (e) {
+    console.log('e', e)
   }
 }
 </script>
@@ -309,5 +346,6 @@ export default {
   font-size: 12px;
   line-height: 30px;
   color: #ccc;
+  margin-bottom: 100px;
 }
 </style>

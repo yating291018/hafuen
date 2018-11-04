@@ -1,0 +1,61 @@
+
+.header.data-v-d5848c3a {
+  display: flex;
+  font-size: 28rpx;
+  padding: 30rpx 10rpx;
+  background: #FFFCEE;
+}
+.left.data-v-d5848c3a {
+  width: 15%;
+  text-align: right;
+}
+.left ._span.data-v-d5848c3a {
+  margin-right: 8rpx;
+  font-size: 24rpx;
+  color: orange;
+  padding: 0 8rpx;
+  border: .10rpx solid orange;
+}
+.right ._p ._span.data-v-d5848c3a {
+  font-size: 24rpx;
+  margin-left: 8rpx;
+  color: #ccc;
+}
+.iphone.data-v-d5848c3a {
+  margin-top: 20rpx;
+  padding: 20rpx;
+}
+.iphone ._h1.data-v-d5848c3a {
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 20rpx;
+}
+.inputiphone.data-v-d5848c3a {
+  outline: none;
+  border: 2rpx solid #eaeaea;
+  background: #eaeaea;
+  border-radius: 40rpx;
+  height: 80rpx;
+  font-size: 28rpx;
+  padding-left: 20rpx;
+  color: #eaeaea;
+}
+.iphone ._p ._span.data-v-d5848c3a {
+  font-size: 24rpx;
+  margin-right: 20rpx;
+}
+.btn.data-v-d5848c3a {
+  position: fixed;
+  left: 2%;
+  width: 96%;
+  bottom: 20rpx;
+  border-radius: 40rpx;
+  background: #FF7A22;
+  font-size: 28rpx;
+  color: #fff;
+}
+.iconfont.data-v-d5848c3a {
+  display: inline-block;
+  vertical-align: middle;
+  color: green;
+}
