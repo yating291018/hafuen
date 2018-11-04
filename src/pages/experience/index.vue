@@ -11,7 +11,7 @@
   </div>
   <div class="iphone">
     <h1>预约后我们将通过电话联系您</h1>
-    <input type="text" placeholder="请输入手机号码" class="inputiphone">
+    <input type="number" placeholder="请输入手机号码" class="inputiphone" pattern="[0-9]*">
     <p><i class="iconfont icon-yduidunpaishixin"></i><span>无强行推销</span> <i class="iconfont icon-yduidunpaishixin"></i><span>号码仅此商户可见</span></p>
   </div>
   <button class="btn">立即预约</button>
@@ -102,6 +102,7 @@ export default {
   border-radius: 20px;
   background: #FF7A22;
   font-size: 14px;
+  padding: 4px 0;
   color: #fff;
 }
 .iconfont{

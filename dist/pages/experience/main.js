@@ -146,8 +146,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('h1', [_vm._v("预约后我们将通过电话联系您")]), _vm._v(" "), _c('input', {
     staticClass: "inputiphone",
     attrs: {
-      "type": "text",
-      "placeholder": "请输入手机号码"
+      "type": "number",
+      "placeholder": "请输入手机号码",
+      "pattern": "[0-9]*"
     }
   }), _vm._v(" "), _c('p', [_c('i', {
     staticClass: "iconfont icon-yduidunpaishixin"

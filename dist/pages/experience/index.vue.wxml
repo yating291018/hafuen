@@ -8,7 +8,7 @@
       </view>
     </view>
     <view class="_div data-v-d5848c3a iphone">
-      <view class="_h1 data-v-d5848c3a">预约后我们将通过电话联系您</view> <input type="text" placeholder="请输入手机号码" class="_input data-v-d5848c3a inputiphone" />
+      <view class="_h1 data-v-d5848c3a">预约后我们将通过电话联系您</view> <input type="number" placeholder="请输入手机号码" class="_input data-v-d5848c3a inputiphone" pattern="[0-9]*" />
       <view class="_p data-v-d5848c3a">
         <view class="_i data-v-d5848c3a iconfont icon-yduidunpaishixin"></view><label class="_span data-v-d5848c3a">无强行推销</label>
         <view class="_i data-v-d5848c3a iconfont icon-yduidunpaishixin"></view><label class="_span data-v-d5848c3a">号码仅此商户可见</label>

@@ -52,6 +52,7 @@
   border-radius: 40rpx;
   background: #FF7A22;
   font-size: 28rpx;
+  padding: 8rpx 0;
   color: #fff;
 }
 .iconfont.data-v-d5848c3a {
