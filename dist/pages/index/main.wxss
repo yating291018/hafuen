@@ -167,7 +167,7 @@
 }
 .img-item.data-v-44136e62 {
   width: 48%;
-  height: 300rpx;
+  height: 320rpx;
   margin: 10rpx auto;
 }
 .img-item ._img.data-v-44136e62 {
@@ -180,4 +180,26 @@
   line-height: 60rpx;
   color: #ccc;
   margin-bottom: 200rpx;
+}
+.previewimage.data-v-44136e62 {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 1);
+  z-index: 10000;
+  overflow: hidden;
+}
+.swiperwrapper.data-v-44136e62 {
+  position: absolute;
+  width: 100%;
+  height: 400rpx;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.swiperwrapper image.data-v-44136e62 {
+  width: 100%;
+  height: 100%;
 }

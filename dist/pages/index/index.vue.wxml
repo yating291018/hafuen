@@ -65,12 +65,23 @@
       <view class="_div data-v-44136e62 huanjing" wx:if="{{selectIndex === 0}}">
         <view class="_div data-v-44136e62 huan-title">环境</view>
         <view class="_div data-v-44136e62 huanImgContainer">
-          <view class="_div data-v-44136e62 img-item" wx:key="index" key="{{index}}" wx:for="{{huanImages}}" wx:for-index="index" wx:for-item="item">
-            <image src="/images/1.jpg" alt class="_img data-v-44136e62"></image>
+          <view class="_div data-v-44136e62 img-item" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'5-'+index}}" data-comkey="{{$k}}" wx:for="{{huanImages}}" wx:for-index="index" wx:for-item="item">
+            <image src="{{item}}" alt class="_img data-v-44136e62"></image>
           </view>
         </view>
-        <view class="_p data-v-44136e62 huan-more" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}">{{ loadMoreTest }}</view>
+        <view class="_p data-v-44136e62 huan-more" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}">{{ loadMoreTest }}</view>
       </view>
-    </view> <button class="_button data-v-44136e62 btn" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}">预约试听</button>
+    </view> <button class="_button data-v-44136e62 btn" bindtap="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}">预约试听</button>
+    <view class="_div data-v-44136e62 previewimage" wx:if="{{previewimageflag}}" bindtap="handleProxy" data-eventid="{{'8'}}" data-comkey="{{$k}}">
+      <view class="_div data-v-44136e62 swiperwrapper">
+        <swiper class="_swiper data-v-44136e62 swiperwrapper" current="{{current}}">
+          <block wx:key="item" key="{{item}}" wx:for="{{previewList}}" wx:for-index="index" wx:for-item="item">
+            <swiper-item class="_swiper-item data-v-44136e62 swipercontainer">
+              <image src="{{item}}" class="_image data-v-44136e62 slide-image"></image>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </view>
   </view>
 </template>

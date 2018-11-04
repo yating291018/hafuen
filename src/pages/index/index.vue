@@ -66,14 +66,25 @@
       <div class="huanjing" v-if="selectIndex === 0">
         <div class="huan-title">环境</div>
         <div class="huanImgContainer">
-          <div class="img-item" v-for="(item, index) in huanImages" :key="index">
-            <img src="../../images/1.jpg" alt="">
+          <div class="img-item" v-for="(item, index) in huanImages" :key="index" @click="changepreviewflag(true, index)">
+            <img :src="item" alt="">
           </div>
         </div>
         <p class="huan-more" @click="loadmore()">{{ loadMoreTest }}</p>
       </div>
     </div>
     <button class="btn" @click="goTry">预约试听</button>
+    <div class="previewimage" v-if="previewimageflag" @click="changepreviewflag(false, 0)">
+      <div class="swiperwrapper">
+        <swiper class="swiperwrapper" :current="current">
+          <block v-for="item in previewList" :key="item">
+            <swiper-item class="swipercontainer">
+              <image :src="item" class="slide-image"/>
+            </swiper-item>
+          </block>
+        </swiper>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -83,6 +94,8 @@ import teacherData from './teacher'
 export default {
   data () {
     return {
+      current: 0,
+      previewimageflag: false,
       showhide: false,
       log: log,
       message: `西象教育成立于2008年，是一家专业从事中小学学习能力辅导与培养的机构
@@ -93,7 +106,24 @@ export default {
         西象教育成立于2008年，是一家专业从事中小学学习能力辅导与培养的机构`,
       selectIndex: 1,
       teachersList: teacherData,
-      huanImages: [1, 2, 3, 4],
+      huanImages: [
+        require('../../images/shop/1.jpeg'),
+        require('../../images/shop/2.jpeg'),
+        require('../../images/shop/3.jpeg'),
+        require('../../images/shop/4.jpeg')
+      ],
+      previewList: [
+        require('../../images/shop/1.jpeg'),
+        require('../../images/shop/2.jpeg'),
+        require('../../images/shop/3.jpeg'),
+        require('../../images/shop/4.jpeg'),
+        require('../../images/shop/5.jpeg'),
+        require('../../images/shop/6.jpeg'),
+        require('../../images/shop/7.jpeg'),
+        require('../../images/shop/8.jpeg'),
+        require('../../images/shop/9.jpeg'),
+        require('../../images/shop/10.jpeg')
+      ],
       loadMoreTest: '加载更多',
       loadmoreIndex: 0
     }
@@ -110,9 +140,18 @@ export default {
     }
   },
   methods: {
+    changepreviewflag (flag, index) {
+      this.previewimageflag = flag
+      this.current = index
+    },
     // 类型切换
     typeChange (selectIndex) {
       this.selectIndex = selectIndex
+      if (selectIndex === 0) {
+        this.loadMoreTest = '加载更多'
+        this.loadmoreIndex = 0
+        this.huanImages = this.huanImages.slice(0, 4)
+      }
       wx.pageScrollTo({
         scrollTop: 400,
         duration: 500
@@ -125,7 +164,14 @@ export default {
       if (this.loadmoreIndex === 0) {
         this.loadMoreTest = '收起'
         this.loadmoreIndex = 1
-        this.huanImages.push(5, 6, 7, 8)
+        this.huanImages.push(
+          require('../../images/shop/5.jpeg'),
+          require('../../images/shop/6.jpeg'),
+          require('../../images/shop/7.jpeg'),
+          require('../../images/shop/8.jpeg'),
+          require('../../images/shop/9.jpeg'),
+          require('../../images/shop/10.jpeg')
+        )
       } else {
         this.loadMoreTest = '加载更多'
         this.loadmoreIndex = 0
@@ -334,7 +380,7 @@ export default {
 }
 .img-item{
   width: 48%;
-  height: 150px;
+  height: 160px;
   margin: 5px auto;
 }
 .img-item img{
@@ -347,5 +393,27 @@ export default {
   line-height: 30px;
   color: #ccc;
   margin-bottom: 100px;
+}
+.previewimage{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 1);
+  z-index: 10000;
+  overflow: hidden;
+}
+.swiperwrapper{
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.swiperwrapper image {
+  width: 100%;
+  height: 100%;
 }
 </style>
